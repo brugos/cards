@@ -1,0 +1,32 @@
+{
+  "name": "credit-card-node-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "serverless offline --stage local",
+    "test": "jest --watchAll",
+    "clean": "rm -rf ./dist ./node_modules yarn-*.log",
+    "format": "prettier -w src",
+    "format:readme": "prettier -w README.md",
+    "to-js": "tsc && rm -rf src && mv dist src && yarn format && rm tsconfig.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "none",
+  "private": true,
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.115",
+    "@types/jest": "^29.5.2",
+    "@types/node": "^20.2.5",
+    "aws-lambda": "^1.0.7",
+    "aws-sdk": "^2.1390.0",
+    "esbuild": "^0.17.19",
+    "jest": "^29.5.0",
+    "prettier": "^2.8.8",
+    "serverless": "^3.32.2",
+    "serverless-esbuild": "^1.45.1",
+    "serverless-offline": "^12.0.4",
+    "ts-jest": "^29.1.0",
+    "typescript": "^5.1.3"
+  }
+}

@@ -1,0 +1,30 @@
+service: credit-card-node-typescript
+
+plugins:
+  - serverless-esbuild
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    noPrependStageInUrl: true
+  esbuild:
+    bundle: true
+    minify: false
+
+provider:
+  name: aws
+  runtime: nodejs18.x
+  memorySize: 128
+  stage: ${opt:stage, "local"}
+  region: eu-west-1
+  environment:
+    STAGE: ${self:provider.stage}
+
+functions:
+  card-function:
+    handler: src/index.default
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
